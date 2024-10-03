@@ -14,12 +14,15 @@ const displayCategories = (categories) => {
   const categoriesContainer = document.getElementById("categories");
   categories.forEach((item) => {
     // create a button
-    const button = document.createElement("button");
-    button.classList = "btn";
-    button.innerText = item.category;
+    const buttonContainer = document.createElement("div");
+    buttonContainer.innerHTML = `
+        <button onclick="loadCategoriesVideos(${item.category_id})" class="btn">
+        ${item.category}
+        </button>
+    `;
 
     // add button to categories container
-    categoriesContainer.append(button);
+    categoriesContainer.append(buttonContainer);
   });
 };
 
